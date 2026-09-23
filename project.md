@@ -54,7 +54,7 @@ ai-gym-coach/
 |-- README.md
 |-- project.md
 |-- .gitignore
-|-- Main App/
+|-- MainApp/
     |-- main.py
     |-- requirements.txt
     |-- packages.txt
@@ -89,11 +89,11 @@ Prevents local and generated content from being committed, including:
 - Local SQLite database
 - Log files
 
-The real API key must stay in `Main App/.env` or in a deployment secret manager. Never commit it.
+The real API key must stay in `MainApp/.env` or in a deployment secret manager. Never commit it.
 
-## 5. Main App Files
+## 5. MainApp Files
 
-### `Main App/main.py`
+### `MainApp/main.py`
 
 This is the application entry point and Streamlit page controller.
 
@@ -123,9 +123,9 @@ Main page responsibilities:
 - Display grouped workout history.
 - Display the author footer.
 
-The application must normally be started from the `Main App` directory because assets and the MediaPipe model are resolved using the current working directory.
+The application must normally be started from the `MainApp` directory because assets and the MediaPipe model are resolved using the current working directory.
 
-### `Main App/requirements.txt`
+### `MainApp/requirements.txt`
 
 Python dependencies used by the application:
 
@@ -138,11 +138,11 @@ Python dependencies used by the application:
 - `gtts`: text-to-speech generation.
 - `python-dotenv`: loading `GEMINI_API_KEY` from `.env`.
 
-### `Main App/packages.txt`
+### `MainApp/packages.txt`
 
 System packages used by Linux-based deployments such as Streamlit Community Cloud. They provide graphics and shared libraries needed by OpenCV and MediaPipe.
 
-### `Main App/.env`
+### `MainApp/.env`
 
 Local configuration file. It contains:
 
@@ -152,7 +152,7 @@ GEMINI_API_KEY=your-key-here
 
 This file is ignored by git. The key should be rotated immediately if it is exposed publicly.
 
-### `Main App/.env.example`
+### `MainApp/.env.example`
 
 Safe template showing the required environment variable without containing a real credential.
 
@@ -402,7 +402,7 @@ Provides SQLite persistence.
 Database location:
 
 ```text
-Main App/data.db
+MainApp/data.db
 ```
 
 Tables:
@@ -517,7 +517,7 @@ Historical tutorial or implementation notes from different project versions. The
 
 ### A. Application startup
 
-1. Run Streamlit from `Main App`.
+1. Run Streamlit from `MainApp`.
 2. Python imports the application modules.
 3. `load_dotenv()` loads `GEMINI_API_KEY`.
 4. Static CSS and font assets are loaded.
@@ -580,7 +580,7 @@ Historical tutorial or implementation notes from different project versions. The
 From PowerShell:
 
 ```powershell
-Set-Location "C:\Users\aksha\Desktop\ai-gym-coach\Main App"
+Set-Location "C:\Users\aksha\Desktop\ai-gym-coach\MainApp"
 python -m pip install -r requirements.txt
 python -m streamlit run main.py --server.headless true --server.port 8502
 ```
