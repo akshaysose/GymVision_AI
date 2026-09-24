@@ -7,6 +7,12 @@
   color: #fff;
 }
 
+/* Hide Streamlit host controls from the deployed app view. */
+[data-testid="stToolbar"],
+[data-testid="stDecoration"] {
+  display: none !important;
+}
+
 [data-testid="stSidebar"] {
   background-color: #111520;
 }
