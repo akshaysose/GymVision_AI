@@ -2,6 +2,7 @@ import streamlit as st
 import os
 import time
 import pandas as pd
+from pathlib import Path
 from dotenv import load_dotenv
 from services.auth.login_wall import render_login_wall
 from services.state.session_defaults import initial_session_defaults
@@ -17,6 +18,8 @@ from services.coaching.llm import LLMCoach
 from services.coaching.tts import TextToSpeech
 from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
 
+APP_DIR = Path(__file__).resolve().parent
+
   
 def main():
     load_dotenv()
@@ -28,8 +31,8 @@ def main():
         layout="centered"
     )
 
-    load_css(os.path.join(os.getcwd(), "static", "style.css"))
-    inject_local_font(os.path.join(os.getcwd(), "static", "AdobeClean.otf"), "AdobeClean")
+    load_css(str(APP_DIR / "static" / "style.css"))
+    inject_local_font(str(APP_DIR / "static" / "AdobeClean.otf"), "AdobeClean")
 
     init_db()
 
